@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    canvas {
+      height: 100%;
+      width: 100%;
+      display: block;
+      background-color: black;
+    }
+    </style>
+    <script type="text/javascript" src="C:\Users\Rakesh\Downloads\paperjs-v0.10.3\dist\paper-full.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/paperscript" canvas = "mycanvas">
+      var circles = [];
+      points = function(){
+
+        var c = Math.floor(Math.random()*view.size.width);
+        return c;
+      }
+    function onKeyDown(event){
+      var circle = new Path.Circle(new Point(points(),points()),500);
+      circle.fillColor = 'red';
+      circles.push(circle)
+      console.log(circles);
+
+      }
+
+      function onFrame(event){
+for(i = 0;i<circles.length;i++){
+        circles[i].scale(0.9);
+      }
+}
+
+    </script>
+  </head>
+  <body>
+  <canvas id = "mycanvas" resize></canvas>
+  <!-- <script type="text/javascript" src = "paper2.js"></script> -->
+  </body>
+</html>
